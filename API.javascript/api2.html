@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <script src="https://api.nasa.gov/planetary/apod?api_key=UPZbEZtQGJIO93X5ELlW0fE7tZJTO4aiIpnvQP3L"></script>
+        <script src="https://storage.googleapis.com/code-snippets/rapidapi.min.js"> </script>
+
+<script>
+
+            $(document).ready( function() {
+                    $.ajax({
+                    url:"https://api.nasa.gov/planetary/apod?api_key=UPZbEZtQGJIO93X5ELlW0fE7tZJTO4aiIpnvQP3L",
+                    success: function(result) {
+                        console.log(result)
+                    }
+
+                });
+
+            });
+
+</script>
+</head>

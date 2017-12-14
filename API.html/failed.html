@@ -1,0 +1,62 @@
+<DOCTYPE html>
+
+    <html>
+ <title>Can i get atleast a B?</title>
+    <head>
+        <style>
+        .div1 {background-color: #f4b642;
+    color: white;
+    padding: 10px;}
+
+            div { border: 1px solid white; margin: 4px; border-radius: 10px; background-color: black; color: white;
+    font-family: verdana; }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        </script>
+                <script>
+            $(document).ready(function() {
+                $("button").click(function() {
+                    //console.log("clicked");
+                    $.ajax({
+                        url: "https://data.cityofchicago.org/resource/cwig-ma7x.json",
+                        success: function(result) {
+                            console.log(result);
+                            var output = "";
+
+                            $.each(result, function(index, value){
+                                //console.log(index + " " + value + " " + value + );
+
+                                // output += "<div class='output'>" + value.aka_name + " " + value.results +  " " +  +"</div>";
+                                $("#results").append("<div>"+ value.aka_name + "   " +   value.address + "<br> "+ value.facility_type  +"<br>" + value.results + " " + " "  + "<br>"+" </div>");
+
+
+
+
+                            });
+
+                            //$("#results").html(output);
+                        }
+                    })
+                });
+            });
+        </script>
+
+
+
+    </head>
+
+    <body>
+
+        <div id="div1">
+            <h2> name , address, results, facitlity type  </h2>
+        </div>
+<button>event</button>
+<p> Want to know whether the restaturant, facility or other  pass or failed?
+Get the most up-to date result!</p>
+<div  id= "results" class= div1 ></div>
+
+</div>
+
+</body>
+
+    </html>

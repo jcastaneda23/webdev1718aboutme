@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <script src="https://api.nasa.gov/planetary/apod?api_key=UPZbEZtQGJIO93X5ELlW0fE7tZJTO4aiIpnvQP3L"></script>
+        <script src="https://storage.googleapis.com/code-snippets/rapidapi.min.js"> </script>
+
+<script>
+var rapid = new RapidAPI("default-application_5a201530e4b0218e3e35e7fa", "a2ebf91e-c6ab-44d2-b551-f0583bf61745");
+
+rapid.call('NasaAPI', 'getEarthImagery', {
+	'coordinate': ''
+
+}).on('success', function (payload) {
+	 /*YOUR CODE GOES HERE*/
+}).on('error', function (payload) {
+	 /*YOUR CODE GOES HERE*/
+});
+</script>
+</head>
