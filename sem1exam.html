@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html>
+<style>
+
+ article { border: 1px dashed white;
+ margin: 4px;
+ border-radius: 5px;
+ background-color: black;
+ color: white;
+ font-size:20px;
+ font-family:'Indie Flower',cursive;
+ text-align:center;
+
+ }
+
+
+
+ .body{
+	background-color: #00bcd4;;
+ }
+ .heading{
+ 	color: black;
+ 	font-size:50px;
+ 	font-family:'Indie Flower',cursive;
+ 	text-align:center;
+ 	 text-decoration: underline;
+}
+.blue{
+    background-color: #3fb5ff;
+}
+
+
+
+.line{
+    color:black;
+}
+
+
+
+ .period{  text-decoration: none;
+ text-align:center;
+
+ }
+
+.after-box {
+    clear: left;
+    border: 3px solid red;
+     color: black;
+ 	font-size:20px;
+ 	font-family:'Indie Flower',cursive;
+ 	text-align:center;
+
+ }
+
+ .paraOne{
+  color:#92b3e8;
+  font-size:40px;
+  text-align:left;
+  font: italic;
+  font-family:'Indie Flower',cursive;
+ }
+
+  .paraTwo{
+   color:white;
+   font-size:20px;
+   text-align:center;
+   font-family:'Indie Flower',cursive;
+  }
+
+  .paraThree{
+    color:white;
+   font-size:20px;
+   text-align:center;
+   font-family:'Indie Flower',cursive;
+  }
+
+ .thick-yellow-border {
+    border-color: #f4d442;
+    border-width: 10px;
+    border-style: solid;
+
+ }
+a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: pink;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+</style>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body class="body">
+<div class="blue">
+<h1 class="heading" >Juanairis Castaneda</h1>
+<h3 class= "period"> <i> Period 1</i></h3>
+</div>
+<br>
+<img src="book.jpg" alt="Siddhartha by Hermann Hesse" style="float:left;vertical-align:center">
+<div>
+
+    <p  class= paraTwo>  This book is about a young boy named Siddhartha.<br>
+    He goes on a spiritual and physiscal quest to find self-found wisdom, with his bestfriend Govida.<br>
+    In the process he meets a women, who he adventures with in means of<br>
+    materialistic and carnal desires. At the end he finds inner peace by achiving nirvana by a river.
+    </p>
+</div>
+
+<br>
+<br>
+<div class="after-box">
+
+  <img src="jeremy.jpg" alt="Jeremy Shada">
+  <div class="card-block">
+    <p class="paraThree"> Jaden Jeremy Shada is an American actor,
+    voice actor, singer and musician who is best known for his work as the voice of Finn the Human
+    from the American animated television series Adventure Time. </p>
+    <a href="https://en.wikipedia.org/wiki/Jeremy_Shada">Visit his Wikipedia profile</a>
+  </div>
+</div>
+<br>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="troye.jpg" style="float:center;vertical-align:center" alt="Troye Sivan">
+      <p class="paraThree">current fave; MY MY MY! by Troye Sivan</p>
+    </div>
+
+    <div class="item">
+      <img src="cuco.jpeg" style="float:center;vertical-align:center" alt="CUCO">
+      <p class= "paraThree"> whole album is a Bop by CUCO</p>
+    </div>
+
+    <div class="item">
+      <img src="rex.jpg" style="float:center;vertical-align:center" alt="Rex Orange County">
+      <p class="paraThree">current Bop; Sunflower by Rex Orange County</p>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<br>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        </script>
+                <script>
+            $(document).ready(function() {
+                $("button").click(function() {
+                    //console.log("clicked");
+                    $.ajax({
+                        url: "https://data.cityofchicago.org/resource/tt4n-kn4t.json",
+                        success: function(result) {
+                            console.log(result);
+                            var output = "";
+
+                            $.each(result, function(index, value){
+                                //console.log(index + " " + value + " " + value + );
+
+                                // output += "<div class='output'>" + value.aka_name + " " + value.results +  " " +  +"</div>";
+                                $("#results").append("<div>"+ value.department + "   " +   value.job_titles + "<br> "+ value.annual_salary  +"<br>" + value.full_or_part_time + " " + " "  + "<br>"+" </div>");
+
+
+
+
+                            });
+
+                            //$("#results").html(output);
+                        }
+                    })
+                });
+            });
+        </script>
+<article id="div1">
+            <h2> CLICK HERE  TO FIND OUT MORE ABOUT The following contains the salaries of all city of chicago employees.department , Job tittles, anual salary, full or part time  </h2>
+        </article>
+<button class="btn btn-primary btn-block" > Department , Job tittles, Anual salary, Full or Part time</button>
+
+<article  id= "results" class=article ></article>
+
+</div>
+</body>
+</html>
