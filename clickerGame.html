@@ -1,8 +1,14 @@
 <!DOCTYPE html>
+<div id="SplashScreen">
+<input class="btn btn-info btn-lg btn-block" id="StartButton" type="button" value="Start"/>
+</div>
+
+
+
 <head>
     <style>
          body {
-           background-image: url("https://jcastaneda23.github.io/webdev1718aboutme/ahh.gif");
+           background-image: url("ahh.gif");
         }
         div{
             font:Arial;
@@ -11,14 +17,21 @@
         }
         .center {
             text-align: center;
-            border: 3px solid green;
+
         }
 
 
     </style>
 </head>
 <body>
-    <canvas onclick="myFunction(event)" id="myCanvas" width="500" height="500"  style="border:3px solid #000000;"></canvas>
+             <!-- Wikplayer https://www.wikplayer.com -->
+    <script type="text/javascript" src="https://www.wikplayer.com/code.js"
+    data-config="{'skin':'skins/wikfull/ribbonBlue/skin.css','volume':50,'autoplay':true,'shuffle':true,'repeat':1,'showcomment':false,'marqueetexton':true,'placement':'bottom','showplaylist':false,'playlist':[{'title':'beats%20ma%20DUDES','url':'https%3A%2F%2Fyoutu.be%2FdhCeseXZEKA'}]}" ></script>
+    <!-- Wikplayer code end -->
+
+
+
+    <canvas onclick="myFunction(event)" id="GameCanvas" width="500" height="500"  style="border:3px solid #000000;"></canvas>
     <button class="btn btn-info btn-lg btn-block" onclick="location.reload()">Restart</button>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -26,10 +39,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 
-
 <script>
 
-            var canvas = document.getElementById("myCanvas");
+              $("#StartButton").click(function () {
+                            $("#SplashScreen").hide();
+                            $("#GameCanvas").show();
+                        });
+
+            var canvas = document.getElementById("GameCanvas");
             var ctx = canvas.getContext("2d");
             var score=0;
             var lives=3;
@@ -50,7 +67,7 @@
                 var xpos=event.clientX;
                 var ypos=event.clientY;
                 if (xpos>=randx && xpos<=randx+50 && ypos>=randy && ypos<=randy+50){
-                    ctx.clearRect(0, 0, 500, 500);
+                    ctx.clearRect(0,0, 500, 500);
                     ctx.fillStyle="#218282";
                     ctx.fillRect(0, 0, 500, 500);
                     score++;
@@ -88,6 +105,7 @@
                     location.reload();
                 }
             }
+
 
 </script>
   <div class= center> PLAY THE POP</div>
