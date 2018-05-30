@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> death</title>
+        <h1>JUANAIRIS </h1>
+    </head>
+    <br>
+    <style>
+          body {
+    background-color: lightblue;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-family: verdana;
+    font-size: 20px;
+}
+    </style>
+
+    <body>
+
+
+<video id="player" controls autoplay></video>
+<button id="capture">Capture</button>
+<canvas id="canvas" width=320 height=240></canvas>
+<script>
+  const player = document.getElementById('player');
+  const canvas = document.getElementById('canvas');
+  const context = canvas.getContext('2d');
+  const captureButton = document.getElementById('capture');
+
+  const constraints = {
+    video: true,
+  };
+
+  captureButton.addEventListener('click', () => {
+    // Draw the video frame to the canvas.
+    context.drawImage(player, 0, 0, canvas.width, canvas.height);
+  });
+
+  // Attach the video stream to the video element and autoplay.
+  navigator.mediaDevices.getUserMedia(constraints)
+    .then((stream) => {
+      player.srcObject = stream;
+    });
+
+    var button = document.getElementById('btn-download');
+button.addEventListener('click', function (e) {
+    var dataURL = canvas.toDataURL('image/png');
+    button.href = dataURL;
+});
+
+function takeSnapshot(){
+
+    //...
+
+    // Get an image dataURL from the canvas.
+    var imageDataURL = hidden_canvas.toDataURL('image/png');
+
+    // Set the href attribute of the download button.
+    document.querySelector('#dl-btn').href = imageDataURL;
+}
+
+
+</script>
+<a id="dl-btn" href="#" download="glorious_selfie.png">Save Photo</a>
+
+    </body>
+</html>
